@@ -37,7 +37,7 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook.  
+The code for this step is contained in the first code cell of the classify.ipynb notebook.  
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
@@ -57,14 +57,14 @@ I also got satisfying results on test images for these parameters so I settled w
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained my classifier in th cell of .ipynb
+I trained my classifier in 4th cell of classify.ipynb
 I trained a linear SVM using HOG features and color features in YCrCb color space. I was able to get around 99% test accuracy on training data.
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I implemented a sliding window search in th cell of code.ipynb
+I implemented a sliding window search in 1st cell of detect.ipynb
 For searching I considered only lower half of frame. I searched with three window-sizes 64, 128, 192 and 75% over-lapping.
 For scales, I figured that 64 would detect far vehicles and 192 would detect near vehicles and 128 is for in between cars.
 For overlap, I tried several values like 50, 60, 70, 80, 65, 75 %. For 75% results was satisfying in quality and speed.
