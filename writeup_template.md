@@ -45,7 +45,7 @@ I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an 
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `HSV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
 ![alt text][image2]
@@ -58,17 +58,17 @@ I also got satisfying results on test images for these parameters so I settled w
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 I trained my classifier in th cell of .ipynb
-I trained a linear SVM using HOG features and color features in HSV color space. I was able to get around 99% test accuracy on training data.
+I trained a linear SVM using HOG features and color features in YCrCb color space. I was able to get around 99% test accuracy on training data.
 
 ### Sliding Window Search
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
+
 I implemented a sliding window search in th cell of code.ipynb
 For searching I considered only lower half of frame. I searched with three window-sizes 64, 128, 192 and 75% over-lapping.
 For scales, I figured that 64 would detect far vehicles and 192 would detect near vehicles and 128 is for in between cars.
 For overlap, I tried several values like 50, 60, 70, 80, 65, 75 %. For 75% results was satisfying in quality and speed.
 
-![alt text][image3]
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
@@ -113,4 +113,5 @@ There were so many false-positives. Even using heat-map, I could not remove them
 
 Extracting HoG features takes long time.
 
-
+Improvements :
+Currently, boxes are very wobly. I can use detections from previous frames to improve this.
